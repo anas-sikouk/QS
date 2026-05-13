@@ -3,36 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rendez-vous - Assurance Annacer</title>
+    <title>Planifier un RDV | Assurance Annacer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { background: #05070a; color: white; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass-card { background: rgba(255,255,255,0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #05070a; color: white; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
         .input-glass { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; transition: 0.3s; }
-        .input-glass:focus { border-color: #3b82f6; outline: none; background: rgba(255,255,255,0.08); }
+        .input-glass:focus { border-color: #3b82f6; outline: none; background: rgba(255,255,255,0.1); }
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-6">
-    <div class="max-w-xl w-full glass-card p-12 rounded-[2.5rem]">
-        <div class="mb-8 text-center">
-            <h2 class="text-3xl font-extrabold">Planifier un échange</h2>
-            <p class="text-gray-400 mt-2">Réservez votre créneau avec nos conseillers AtlantaSanad.</p>
-        </div>
-        <form class="space-y-6">
-            <input type="text" placeholder="Nom complet" class="input-glass p-4 rounded-xl w-full">
-            <div class="grid grid-cols-2 gap-4">
-                <input type="tel" placeholder="Téléphone" class="input-glass p-4 rounded-xl w-full">
-                <input type="date" class="input-glass p-4 rounded-xl w-full">
+<body class="bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-[#05070a] to-[#05070a]">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter">ANNACER<span class="text-blue-500">.</span></div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition">Accueil</a>
+                <a href="services.html" class="hover:text-blue-400 transition">Services</a>
+                <a href="rdv.html" class="text-blue-400 font-bold">Rendez-vous</a>
+                <a href="contact.html" class="px-5 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition">Contact</a>
             </div>
-            <select class="input-glass p-4 rounded-xl w-full appearance-none">
-                <option>Assurance Automobile</option>
-                <option>Assurance Habitation</option>
-                <option>Expertise Conseil</option>
-            </select>
-            <button class="w-full py-4 bg-blue-600 hover:bg-blue-700 rounded-xl font-bold transition-all transform hover:scale-[1.02]">
-                Confirmer le RDV
-            </button>
-        </form>
-    </div>
+            <button id="btn-open" class="md:hidden">☰</button>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-20 px-6 flex justify-center">
+        <div class="max-w-xl w-full glass p-10 rounded-[2.5rem] border border-white/10 reveal">
+            <h2 class="text-3xl font-extrabold mb-4 text-center">Consultation <span class="text-blue-500 text-3xl italic">AtlantaSanad</span></h2>
+            <p class="text-gray-400 text-center mb-8">Choisissez votre créneau à Sidi Kacem.</p>
+            
+            <form class="space-y-6">
+                <input type="text" placeholder="Nom et Prénom" class="input-glass p-4 rounded-xl w-full" required>
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="tel" placeholder="Téléphone" class="input-glass p-4 rounded-xl w-full" required>
+                    <input type="date" class="input-glass p-4 rounded-xl w-full text-gray-400">
+                </div>
+                <select class="input-glass p-4 rounded-xl w-full appearance-none">
+                    <option disabled selected>Type d'assurance</option>
+                    <option>Auto</option>
+                    <option>Santé</option>
+                    <option>Habitation</option>
+                </select>
+                <button type="submit" class="w-full py-4 bg-blue-600 hover:bg-blue-700 rounded-xl font-bold transition-transform hover:scale-[1.02]">
+                    Réserver maintenant
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
 </body>
 </html>
