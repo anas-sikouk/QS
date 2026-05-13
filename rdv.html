@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendez-vous - Assurance Annacer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #05070a; color: white; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card { background: rgba(255,255,255,0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); }
+        .input-glass { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; transition: 0.3s; }
+        .input-glass:focus { border-color: #3b82f6; outline: none; background: rgba(255,255,255,0.08); }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-6">
+    <div class="max-w-xl w-full glass-card p-12 rounded-[2.5rem]">
+        <div class="mb-8 text-center">
+            <h2 class="text-3xl font-extrabold">Planifier un échange</h2>
+            <p class="text-gray-400 mt-2">Réservez votre créneau avec nos conseillers AtlantaSanad.</p>
+        </div>
+        <form class="space-y-6">
+            <input type="text" placeholder="Nom complet" class="input-glass p-4 rounded-xl w-full">
+            <div class="grid grid-cols-2 gap-4">
+                <input type="tel" placeholder="Téléphone" class="input-glass p-4 rounded-xl w-full">
+                <input type="date" class="input-glass p-4 rounded-xl w-full">
+            </div>
+            <select class="input-glass p-4 rounded-xl w-full appearance-none">
+                <option>Assurance Automobile</option>
+                <option>Assurance Habitation</option>
+                <option>Expertise Conseil</option>
+            </select>
+            <button class="w-full py-4 bg-blue-600 hover:bg-blue-700 rounded-xl font-bold transition-all transform hover:scale-[1.02]">
+                Confirmer le RDV
+            </button>
+        </form>
+    </div>
+</body>
+</html>
