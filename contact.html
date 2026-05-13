@@ -3,37 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Assurance Annacer</title>
+    <title>Contactez-nous | Assurance Annacer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        body { background: #05070a; color: white; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .input-glass { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; transition: 0.3s; }
+        .input-glass:focus { border-color: #3b82f6; outline: none; background: rgba(255,255,255,0.1); }
+    </style>
 </head>
-<body class="bg-[#05070a] text-white pt-32 px-6">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+<body class="pt-32 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 reveal">
         <div>
-            <h1 class="text-6xl font-extrabold mb-6">Parlons de votre <span class="text-blue-500">sécurité</span>.</h1>
-            <div class="space-y-6 text-xl text-gray-400">
-                <p>📍 Sidi Kacem, Maroc</p>
-                <p>📧 annacer.assurance@gmail.com</p>
-                <p>🏢 Partenaire AtlantaSanad</p>
+            <h1 class="text-6xl font-black mb-10 leading-tight">Parlons de votre <span class="text-blue-500">protection</span>.</h1>
+            <div class="space-y-8 text-gray-400">
+                <div class="flex items-center gap-6">
+                    <span class="w-12 h-12 glass rounded-xl flex items-center justify-center text-xl">📍</span>
+                    <div><p class="text-white font-bold">Localisation</p><p>Sidi Kacem, Maroc</p></div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <span class="w-12 h-12 glass rounded-xl flex items-center justify-center text-xl">📧</span>
+                    <div><p class="text-white font-bold">Email</p><p>annacer.assurance@gmail.com</p></div>
+                </div>
             </div>
         </div>
 
-        <form id="contact-form" class="bg-white/5 p-10 rounded-[2.5rem] border border-white/10 space-y-6">
-            <input type="text" name="user_name" placeholder="Nom" required class="w-full p-4 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-blue-500">
-            <input type="email" name="user_email" placeholder="Email" required class="w-full p-4 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-blue-500">
-            <textarea name="message" placeholder="Votre message" rows="4" required class="w-full p-4 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-blue-500"></textarea>
-            <button type="submit" class="w-full py-4 bg-blue-600 rounded-xl font-bold hover:bg-blue-700 transition">Envoyer le message</button>
+        <form id="contact-form" class="glass p-10 rounded-[3rem] border border-white/10 space-y-6">
+            <input type="text" name="user_name" placeholder="Nom complet" required class="input-glass w-full p-5 rounded-2xl">
+            <input type="email" name="user_email" placeholder="Email professionnel" required class="input-glass w-full p-5 rounded-2xl">
+            <textarea name="message" placeholder="Détaillez votre besoin..." rows="4" required class="input-glass w-full p-5 rounded-2xl"></textarea>
+            <button type="submit" class="w-full py-5 bg-blue-600 hover:bg-blue-700 rounded-2xl font-black uppercase tracking-widest transition-transform hover:scale-[1.02]">
+                Envoyer la demande
+            </button>
         </form>
     </div>
 
     <script>
-        (function() { emailjs.init("VOTRE_PUBLIC_KEY"); })();
+        (function() { emailjs.init("vk3TsCj2TbhWy2OOB"); })();
         document.getElementById('contact-form').onsubmit = function(e) {
             e.preventDefault();
-            emailjs.sendForm('VOTRE_SERVICE_ID', 'VOTRE_TEMPLATE_ID', this)
-                .then(() => alert('Succès ! Nous vous répondrons rapidement.'), 
-                      (err) => alert('Échec de l\'envoi...'));
+            emailjs.sendForm('service_wuh745h', 'template_icsw208', this)
+                .then(() => alert('Nous avons bien reçu votre demande !'), (err) => alert('Erreur lors de l\'envoi.'));
         };
     </script>
+    <script src="main.js"></script>
 </body>
 </html>
