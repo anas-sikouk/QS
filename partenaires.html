@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Partenaires | Assurance Annacer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #05070a; color: white; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter">ANNACER<span class="text-blue-500">.</span></div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition">Accueil</a>
+                <a href="services.html" class="hover:text-blue-400 transition">Services</a>
+                <a href="partenaires.html" class="text-blue-400 font-bold">Partenaires</a>
+                <a href="contact.html" class="px-5 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition">Contact</a>
+            </div>
+            <button id="btn-open" class="md:hidden text-white"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round"/></svg></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl hidden flex-col justify-center items-center space-y-8 text-2xl transition-all">
+        <button id="btn-close" class="absolute top-8 right-8 text-gray-400 text-3xl">✕</button>
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="partenaires.html" class="text-blue-500">Partenaires</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <section class="pt-40 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 reveal">Un Réseau de <span class="text-blue-500">Confiance</span></h1>
+            <p class="text-gray-400 text-xl max-w-3xl mx-auto mb-20 reveal">En tant que représentant d'**AtlantaSanad**, nous collaborons avec les meilleurs acteurs pour garantir votre sécurité à Sidi Kacem.</p>
+            
+            <div class="grid md:grid-cols-2 gap-10 reveal">
+                <div class="glass p-12 rounded-[3rem] border border-blue-500/20 flex flex-col items-center">
+                    <div class="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mb-6 text-4xl">🏢</div>
+                    <h2 class="text-3xl font-bold mb-4 text-white">AtlantaSanad</h2>
+                    <p class="text-gray-400">Notre partenaire principal, pilier de l'assurance au Maroc, offrant des garanties solides et reconnues.</p>
+                </div>
+                <div class="glass p-12 rounded-[3rem] border border-white/5 flex flex-col items-center">
+                    <div class="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mb-6 text-4xl">🤝</div>
+                    <h2 class="text-3xl font-bold mb-4 text-white">Réseau Local</h2>
+                    <p class="text-gray-400">Partenariat étroit avec les experts et garages agréés de la région de Sidi Kacem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        const menu = document.getElementById('mobile-menu');
+        document.getElementById('btn-open').onclick = () => menu.classList.remove('hidden');
+        document.getElementById('btn-close').onclick = () => menu.classList.add('hidden');
+    </script>
+</body>
+</html>
