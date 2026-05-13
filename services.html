@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services | Assurance Annacer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #05070a; color: white; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; }
+        .glass-card:hover { transform: translateY(-10px); border-color: rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.03); }
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="pt-32 px-6">
+    <div class="max-w-7xl mx-auto text-center mb-20 reveal">
+        <h2 class="text-5xl font-black mb-6">Solutions <span class="text-blue-500 italic">AtlantaSanad</span></h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">Une protection sur-mesure analysée par nos experts pour chaque aspect de votre quotidien.</p>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 mb-20 reveal">
+        <!-- Carte Auto -->
+        <div class="glass-card p-10 rounded-[2.5rem] cursor-pointer" onclick="openModal('auto')">
+            <div class="text-4xl mb-6">🚗</div>
+            <h3 class="text-2xl font-bold mb-4 italic">Assurance Auto</h3>
+            <p class="text-gray-400 mb-6">Responsabilité Civile, Vol, Incendie et Assistance 24h/24.</p>
+            <span class="text-blue-500 font-bold tracking-widest text-sm uppercase">Détails →</span>
+        </div>
+
+        <!-- Carte Santé -->
+        <div class="glass-card p-10 rounded-[2.5rem] cursor-pointer" onclick="openModal('health')">
+            <div class="text-4xl mb-6">🏥</div>
+            <h3 class="text-2xl font-bold mb-4 italic">Assurance Santé</h3>
+            <p class="text-gray-400 mb-6">Couverture médicale complète pour vous et votre famille.</p>
+            <span class="text-blue-500 font-bold tracking-widest text-sm uppercase">Détails →</span>
+        </div>
+
+        <!-- Carte Pro -->
+        <div class="glass-card p-10 rounded-[2.5rem] cursor-pointer" onclick="openModal('pro')">
+            <div class="text-4xl mb-6">💼</div>
+            <h3 class="text-2xl font-bold mb-4 italic">Assurance Pro</h3>
+            <p class="text-gray-400 mb-6">Protection de votre activité et de vos locaux commerciaux.</p>
+            <span class="text-blue-500 font-bold tracking-widest text-sm uppercase">Détails →</span>
+        </div>
+    </div>
+
+    <div id="modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden z-[100] flex items-center justify-center p-6">
+        <div class="bg-gray-900 border border-white/10 p-12 rounded-[3rem] max-w-xl w-full relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-500 text-2xl">✕</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const services = {
+            auto: { t: "Pack Automobile", d: "Nos solutions incluent la garantie Dommage Collision et le Bris de Glace sans franchise pour les clients premium." },
+            health: { t: "Santé & Prévoyance", d: "Remboursements optimisés et accès au tiers-payant dans tout le réseau clinique national." },
+            pro: { t: "Responsabilité Civile Pro", d: "Sécurisez votre entreprise à Sidi Kacem avec des contrats modulables selon votre secteur." }
+        };
+        function openModal(id) {
+            document.getElementById('modal-content').innerHTML = `<h2 class="text-4xl font-black mb-6 text-blue-500">${services[id].t}</h2><p class="text-gray-300 leading-relaxed text-lg italic">${services[id].d}</p>`;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
